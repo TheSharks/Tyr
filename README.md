@@ -1,0 +1,2 @@
+# Tyr
+Tyr is a library agnostic [Lavalink](https://github.com/Frederikam/Lavalink) implementation. While originally designed with [Eris](https://github.com/abalabahaha/Eris) in mind, all parts are able to run independently.
