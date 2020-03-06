@@ -10,15 +10,16 @@ module.exports = class Player extends EventEmitter {
   /**
    * @param {LavalinkNode} node The node supporting this player
    * @param {String} guild The ID of the guild where this player is used
-   * @param {Object} voiceData Initial voice data to be passed to the player
+   * @param {module:eris.Shard} shard The shard that runs this player
    */
-  constructor (node, guild, voiceData) {
+  constructor (node, guild, shard) {
     super()
     this.node = node
     this.guild = guild
-    this.voiceData = voiceData
     this.paused = false
     this.connected = false
+    this.state = null
+    this.shard = shard
   }
 
   /**
@@ -37,7 +38,8 @@ module.exports = class Player extends EventEmitter {
       sessionId: data.sessionId,
       event: data.event
     })
-    this.connnected = true
+    this.connected = true
+    this.emit('ready')
   }
 
   /**
@@ -76,6 +78,34 @@ module.exports = class Player extends EventEmitter {
   }
 
   /**
+   * Destroy the player
+   * This does not affect voice state
+   */
+  destroy () {
+    this.node.send({
+      op: 'destroy',
+      guildId: this.guild
+    })
+  }
+
+  /**
+   * Disconnect the player
+   * This destroys the player and disconnects the client from discord
+   */
+  disconnect () {
+    this.destroy()
+    this.updateVoiceState()
+  }
+
+  /**
+   * Switch the client to a different voice channel
+   * @param {String} channelID Channel to switch to
+   */
+  switchChannel (channelID) {
+    this.updateVoiceState(channelID)
+  }
+
+  /**
    * Toggle playback for the player
    */
   togglePlayback () {
@@ -97,5 +127,48 @@ module.exports = class Player extends EventEmitter {
       guildId: this.guild,
       position: position
     })
+  }
+
+  /**
+   * Change the equalizer for this player
+   * @param {{ band: Number, gain: Number }[]} bands Array with bands
+   */
+  eq (bands) {
+    this.node.send({
+      op: 'equalizer',
+      guildId: this.guild,
+      bands: bands
+    })
+  }
+
+  /**
+   * Change the voice state of the client
+   * @param {String | undefined} channelID Channel to switch to, leave blank to disconnect
+   * @param {Boolean | undefined} mute Should the client appear muted? This doesn't affect voice data transmitted
+   * @param {Boolean | undefined} deaf Should the client appear deaf? This doesn't affect voice data received
+   */
+  updateVoiceState (channelID, mute, deaf) {
+    if (this.shard.sendWS) {
+      this.shard.sendWS(4, { // VOICE_STATE_UPDATE
+        guild_id: this.guild,
+        channel_id: channelID || null,
+        self_mute: !!mute,
+        self_deaf: !!deaf
+      })
+    }
+  }
+
+  _onMessage (msg) {
+    if (msg.op === 'playerUpdate') {
+      this.state = msg.state
+    }
+    if (msg.op === 'event') {
+      switch (msg.type) {
+        case 'TrackEndEvent': return this.emit('trackEnd', msg)
+        case 'TrackExceptionEvent': return this.emit('trackError', msg)
+        case 'TrackStuckEvent': return this.emit('trackStuck', msg)
+        default: return this.emit('warn', `Unknown event payload: ${JSON.stringify(msg)}`)
+      }
+    }
   }
 }

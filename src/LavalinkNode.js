@@ -16,19 +16,21 @@ module.exports = class LavalinkNode extends EventEmitter {
    * @param {Number} options.shards The number of shards your bot has
    * @param {String} options.password The password of the node
    * @param {String} options.userId The user id of your bot
+   * @param {String} options.region The geographical region where the node is located
    * @param {Boolean} [options.autoReconnect=true] Whether or not to automatically try reconnecting to the node
    */
   constructor (options) {
     super()
 
     this.host = options.host
-    this.port = options.port || 8080
+    this.port = options.port
     this.address = `${this.host}:${this.port}`
     this.shards = options.shards
     this.password = options.password || 'youshallnotpass'
     this.userId = options.userId
     this.connected = false
     this.retries = 0
+    this.region = options.region || 'us'
     this.autoReconnect = options.autoReconnect || true
 
     this.connect()
