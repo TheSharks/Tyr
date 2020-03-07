@@ -1,6 +1,6 @@
 {
   "name": "@thesharks/tyr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lavalink implementation",
   "main": "index.js",
   "scripts": {
