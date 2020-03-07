@@ -115,12 +115,10 @@ module.exports = class LavalinkNode extends EventEmitter {
     this.connected = false
     delete this.ws
     if (this.autoReconnect) {
-      if (!this.reconnectInterval) {
-        this.reconnectInterval = setInterval(() => {
-          this.retries++
-          this.connect.bind(this)
-        }, Math.pow(this.retries + 5, 2) * 1000)
-      }
+      this.reconnectInterval = setTimeout(() => {
+        this.retries++
+        this.connect()
+      }, Math.pow(this.retries + 2, 2) * 1000)
     }
   }
 }
