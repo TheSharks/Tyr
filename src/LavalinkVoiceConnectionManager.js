@@ -1,7 +1,8 @@
 const LavalinkNode = require('./LavalinkNode')
 const Player = require('./Player')
+const { Collection } = require('eris')
 
-module.exports = class LavalinkVoiceConnectionManager extends Map {
+module.exports = class LavalinkVoiceConnectionManager extends Collection {
   /**
    * @param {{ host: String, password: String, port: Number|String, region: String }[]} nodes An array of lavalink nodes to connect to
    * @param {{ regions: Object, defaultRegion: String, shards: Number, userId: String }} options Options to pass to the constructor
@@ -15,6 +16,7 @@ module.exports = class LavalinkVoiceConnectionManager extends Map {
         ...x
       })
     })
+    this.nodes.forEach(x => x.on('message', this.onNodeMessage.bind(this)))
     this.pendingGuilds = {}
     this.regions = options.regions || {
       asia: ['singapore', 'hongkong', 'russia', 'japan', 'india', 'dubai'],

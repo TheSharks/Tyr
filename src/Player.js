@@ -158,7 +158,7 @@ module.exports = class Player extends EventEmitter {
     }
   }
 
-  _onMessage (msg) {
+  onNodeMessage (msg) {
     if (msg.op === 'playerUpdate') {
       this.state = msg.state
     }
