@@ -167,6 +167,7 @@ module.exports = class Player extends EventEmitter {
         case 'TrackEndEvent': return this.emit('trackEnd', msg)
         case 'TrackExceptionEvent': return this.emit('trackError', msg)
         case 'TrackStuckEvent': return this.emit('trackStuck', msg)
+        case 'TrackStartEvent': return this.emit('trackStart', msg)
         default: return this.emit('warn', `Unknown event payload: ${JSON.stringify(msg)}`)
       }
     }
