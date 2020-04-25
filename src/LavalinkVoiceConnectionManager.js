@@ -108,6 +108,41 @@ module.exports = class LavalinkVoiceConnectionManager extends Collection {
     return this.defaultRegion
   }
 
+  /**
+   * Connect to new nodes
+   * @param {{ host: String, password: String, port: Number|String, region: String }[]} nodes An array of lavalink nodes to connect to
+   * @param {{ shards: Number, userId: String }} options
+   * @param {Boolean} destructive Destroy connections to all current nodes?
+   */
+  remapNodes (nodes, options, destructive = false) {
+    if (destructive) {
+      if (this.nodes.length > 0) this.nodes.forEach(x => x.destroy())
+      this.nodes = nodes.map(x => {
+        return new LavalinkNode({
+          shards: options.shards,
+          userId: options.userId,
+          ...x
+        })
+      })
+    } else {
+      const nodeAdresses = this.nodes.map(x => x.address)
+      const newnodes = nodes.filter(x => !nodeAdresses.includes(`${x.host}:${x.port}`))
+      newnodes.forEach(x => {
+        this.nodes.push(new LavalinkNode({
+          shards: options.shards,
+          userId: options.userId,
+          ...x
+        }))
+      })
+    }
+
+    this.nodes
+      .filter(x => x.listenerCount('message') === 0)
+      .forEach(x => x.on('message', this.onNodeMessage.bind(this)))
+
+    return this.nodes
+  }
+
   onNodeMessage (msg) {
     const player = this.get(msg.guildId)
     if (!player) return
