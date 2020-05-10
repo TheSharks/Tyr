@@ -2,11 +2,19 @@ const LavalinkNode = require('./LavalinkNode')
 const Player = require('./Player')
 const { Collection } = require('eris')
 
-module.exports = class LavalinkVoiceConnectionManager extends Collection {
-  /**
-   * @param {{ host: String, password: String, port: Number|String, region: String }[]} nodes An array of lavalink nodes to connect to
-   * @param {{ regions: Object, defaultRegion: String, shards: Number, userId: String }} options Options to pass to the constructor
-   */
+/**
+ * @param {Object[]} nodes An array of lavalink nodes to connect to
+ * @param {String} nodes.host The address of the node
+ * @param {String} nodes.password The password of the node
+ * @param {Number} nodes.port The port of the node
+ * @param {String} nodes.region The geographical region of the node
+ * @param {Object} options
+ * @param {String} options.userId The user ID from the client
+ * @param {Number} options.shards How many shards the client is running
+ * @param {Object} [options.regions] What regions to use
+ * @param {String} [options.defaultRegion='us'] The default region to use if no regions correspond
+ */
+class LavalinkVoiceConnectionManager extends Collection {
   constructor (nodes, options = {}) {
     super()
     this.nodes = nodes.map(x => {
@@ -110,9 +118,16 @@ module.exports = class LavalinkVoiceConnectionManager extends Collection {
 
   /**
    * Connect to new nodes
-   * @param {{ host: String, password: String, port: Number|String, region: String }[]} nodes An array of lavalink nodes to connect to
-   * @param {{ shards: Number, userId: String }} options
+   * @param {Object[]} nodes An array of lavalink nodes to connect to
+   * @param {String} nodes.host The address of the node
+   * @param {String} nodes.password The password of the node
+   * @param {Number} nodes.port The port of the node
+   * @param {String} nodes.region The geographical region of the node
+   * @param {Object} options
+   * @param {String} options.userId The user ID from the client
+   * @param {Number} options.shards How many shards the client is running
    * @param {Boolean} destructive Destroy connections to all current nodes?
+   * @return {LavalinkNode[]} The nodes the module is connecting to now
    */
   remapNodes (nodes, options, destructive = false) {
     if (destructive) {
@@ -149,3 +164,5 @@ module.exports = class LavalinkVoiceConnectionManager extends Collection {
     player.onNodeMessage(msg)
   }
 }
+
+module.exports = LavalinkVoiceConnectionManager

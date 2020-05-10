@@ -8,17 +8,18 @@ try {
   EventEmitter = require('events').EventEmitter
 }
 
-module.exports = class LavalinkNode extends EventEmitter {
-  /**
-   * @param {Object} options Node options
-   * @param {String} options.host The address of the node
-   * @param {Number} options.port The port of the node
-   * @param {Number} options.shards The number of shards your bot has
-   * @param {String} options.password The password of the node
-   * @param {String} options.userId The user id of your bot
-   * @param {String} options.region The geographical region where the node is located
-   * @param {Boolean} [options.autoReconnect=true] Whether or not to automatically try reconnecting to the node
-   */
+/**
+ * @extends EventEmitter
+ * @param {Object} options Node options
+ * @param {String} options.host The address of the node
+ * @param {Number} options.port The port of the node
+ * @param {Number} options.shards The number of shards your bot has
+ * @param {String} options.password The password of the node
+ * @param {String} options.userId The user id of your bot
+ * @param {String} options.region The geographical region where the node is located
+ * @param {Boolean} [options.autoReconnect=true] Whether or not to automatically try reconnecting to the node
+ */
+class LavalinkNode extends EventEmitter {
   constructor (options) {
     super()
 
@@ -38,6 +39,7 @@ module.exports = class LavalinkNode extends EventEmitter {
 
   /**
    * Connect to the node
+   * @returns {void}
    */
   connect () {
     this.ws = new WebSocket(`ws://${this.address}`, {
@@ -56,6 +58,7 @@ module.exports = class LavalinkNode extends EventEmitter {
 
   /**
    * Destroy the connection to the node
+   * @returns {void}
    */
   destroy () {
     if (this.ws) {
@@ -68,6 +71,7 @@ module.exports = class LavalinkNode extends EventEmitter {
   /**
    * Send data to the node
    * @param {*} data JSON encodable payload
+   * @returns {void}
    */
   send (data) {
     try {
@@ -81,6 +85,8 @@ module.exports = class LavalinkNode extends EventEmitter {
   /**
    * Load tracks from the node
    * @param {String} search Search query to use
+   * @returns {Object} The response from the node
+   * @throws {Error} Throws when the returned response from Lavalink is unusable
    */
   async loadTracks (search) {
     const data = await SuperAgent
@@ -122,3 +128,5 @@ module.exports = class LavalinkNode extends EventEmitter {
     }
   }
 }
+
+module.exports = LavalinkNode
