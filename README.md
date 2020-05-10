@@ -1,6 +1,9 @@
 # Tyr
 Tyr is a lightweight [Lavalink](https://github.com/Frederikam/Lavalink) implementation built around [Eris](https://github.com/abalabahaha/Eris).
 
+# Getting started
+This is a quick overview on how to get started with Tyr, for more comprehensive documentation please see the [docs](https://thesharks.github.io/Tyr)
+
 ## Installation
 Tyr includes a `VoiceConnectionManager` that replaces the built-in one from Eris
 ```js
