@@ -13,6 +13,22 @@ try {
  * @param {LavalinkNode} node The node supporting this player
  * @param {String} guild The ID of the guild where this player is used
  * @param {module:eris.Shard} shard The shard that runs this player
+ *
+ * @property {LavalinkNode} node The node supporting this player
+ * @property {String} guild The ID of the guild where this player is used
+ * @property {module:eris.Shard} shard The shard that runs this player
+ * @property {Boolean} paused Whether or not the playback for this player is paused
+ * @property {Boolean} connected Whether or not the player is fully connected
+ * @property {Object} state The current state of the player
+ * @property {Number} [state.time] The UNIX timestamp when this player started playing
+ * @property {Number} [state.position] A time in ms representing the position of the track the player is currently playing
+ *
+ * @fires Player#trackStart
+ * @fires Player#trackEnd
+ * @fires Player#trackStuck
+ * @fires Player#trackError
+ * @fires Player#warn
+ * @fires Player#ready
  */
 class Player extends EventEmitter {
   constructor (node, guild, shard) {
@@ -21,7 +37,7 @@ class Player extends EventEmitter {
     this.guild = guild
     this.paused = false
     this.connected = false
-    this.state = null
+    this.state = {}
     this.shard = shard
   }
 
@@ -34,6 +50,10 @@ class Player extends EventEmitter {
    * @param {String} data.event.endpoint The endpoint of the voice server
    * @param {String} data.event.guild_id The ID of the guild where this player is assigned to
    * @param {String} data.event.token The token used to identify with the voice server
+   */
+  /**
+   * Fired whenever the player is ready to accept tracks
+   * @event Player#ready
    */
   connect (data) {
     this.node.send({
@@ -181,10 +201,49 @@ class Player extends EventEmitter {
     }
     if (msg.op === 'event') {
       switch (msg.type) {
+        /**
+         * This will be fired whenever a track stops playing
+         *
+         * A track can end for many reasons!
+         * You should check the reason property before doing additional logic,
+         * like playing new tracks
+         * @event Player#trackEnd
+         * @type {Object}
+         * @property {String} track The track that has ended
+         * @property {String} reason Why the track ended
+         * @example Player.on('trackEnd', ctx => console.log(`The track ${ctx.track} has ended`))
+         */
         case 'TrackEndEvent': return this.emit('trackEnd', msg)
+        /**
+         * This will be fired whenever lavalink encounters an error while playing a track
+         * @event Player#trackError
+         * @type {Object}
+         * @property {String} track The track that has ended
+         * @property {String} error Why the track errored
+         * @example Player.on('trackError', ctx => console.error(`The track ${ctx.track} crashed!`, ctx.error))
+         */
         case 'TrackExceptionEvent': return this.emit('trackError', msg)
+        /**
+         * This will be fired whenever lavalink is playing a track, but the track hasn't progressed for a set amount of time
+         * @event Player#trackStuck
+         * @type {Object}
+         * @property {String} track The track that got stuck
+         * @example Player.on('trackStuck', ctx => console.error(`The track ${ctx.track} got stuck!`))
+         */
         case 'TrackStuckEvent': return this.emit('trackStuck', msg)
+        /**
+         * This will be fired whenever lavalink starts playing a track
+         * @event Player#trackStart
+         * @type {Object}
+         * @property {String} track The track that's now playing
+         * @example Player.on('trackStart', ctx => console.log(`Now playing track ${ctx.track}`))
+         */
         case 'TrackStartEvent': return this.emit('trackStart', msg)
+        /**
+         * Fired whenever the player encounters something non-breaking, but noteworthy
+         * @event Player#warn
+         * @type {String}
+         */
         default: return this.emit('warn', `Unknown event payload: ${JSON.stringify(msg)}`)
       }
     }

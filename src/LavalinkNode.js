@@ -18,6 +18,13 @@ try {
  * @param {String} options.userId The user id of your bot
  * @param {String} options.region The geographical region where the node is located
  * @param {Boolean} [options.autoReconnect=true] Whether or not to automatically try reconnecting to the node
+ *
+ * @property {Object} stats The statistics of the node
+ *
+ * @fires LavalinkNode#error
+ * @fires LavalinkNode#disconnected
+ * @fires LavalinkNode#ready
+ * @fires LavalinkNode#message
  */
 class LavalinkNode extends EventEmitter {
   constructor (options) {
@@ -33,6 +40,7 @@ class LavalinkNode extends EventEmitter {
     this.retries = 0
     this.region = options.region || 'us'
     this.autoReconnect = options.autoReconnect || true
+    this.stats = {}
 
     this.connect()
   }
@@ -52,6 +60,11 @@ class LavalinkNode extends EventEmitter {
 
     this.ws.on('open', this._ready.bind(this))
     this.ws.on('message', this._onMessage.bind(this))
+    /**
+     * Fired whenver the node encounters an error
+     * @event LavalinkNode#error
+     * @type {Error}
+     */
     this.ws.on('error', e => this.emit('error', e))
     this.ws.on('close', this._disconnected.bind(this))
   }
@@ -77,7 +90,7 @@ class LavalinkNode extends EventEmitter {
     try {
       data = JSON.stringify(data)
     } catch (e) {
-      this.emit('error', 'Invalid payload supplied')
+      this.emit('error', new Error('Invalid payload supplied'))
     }
     if (this.ws.readyState === WebSocket.OPEN) this.ws.send(data)
   }
@@ -103,6 +116,10 @@ class LavalinkNode extends EventEmitter {
     }
     this.connected = true
     this.retries = 0
+    /**
+     * Fires whenever the node becomes ready to accept players
+     * @event LavalinkNode#ready
+     */
     this.emit('ready')
   }
 
@@ -110,13 +127,22 @@ class LavalinkNode extends EventEmitter {
     try {
       msg = JSON.parse(msg)
     } catch (e) {
-      this.emit('error', 'Unable to decode WS messsage')
+      this.emit('error', new Error('Unable to decode WS messsage'))
     }
     if (msg.op && msg.op === 'stats') this.stats = msg
+    /**
+     * Fires whenever the node emits a message
+     * @event LavalinkNode#message
+     * @type {Object}
+     */
     this.emit('message', msg)
   }
 
   _disconnected () {
+    /**
+     * Fires whenever the node disconnects
+     * @event LavalinkNode#disconnected
+     */
     this.emit('disconnected')
     this.connected = false
     delete this.ws
