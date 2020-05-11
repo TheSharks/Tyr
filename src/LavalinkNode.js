@@ -98,7 +98,7 @@ class LavalinkNode extends EventEmitter {
   /**
    * Load tracks from the node
    * @param {String} search Search query to use
-   * @returns {Object} The response from the node
+   * @returns {Promise<Object>} The response from the node
    * @throws {Error} Throws when the returned response from Lavalink is unusable
    */
   async loadTracks (search) {
