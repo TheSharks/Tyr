@@ -75,6 +75,46 @@
               
                 
                 <li><a
+                  href='#eventlavalinknodeerror'
+                  class="">
+                  LavalinkNode#error
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventlavalinknodeready'
+                  class="">
+                  LavalinkNode#ready
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventlavalinknodemessage'
+                  class="">
+                  LavalinkNode#message
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventlavalinknodedisconnected'
+                  class="">
+                  LavalinkNode#disconnected
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#player'
                   class=" toggle-sibling">
                   Player
@@ -152,6 +192,66 @@
                   
                   
                 </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayerready'
+                  class="">
+                  Player#ready
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayertrackend'
+                  class="">
+                  Player#trackEnd
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayertrackerror'
+                  class="">
+                  Player#trackError
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayertrackstuck'
+                  class="">
+                  Player#trackStuck
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayertrackstart'
+                  class="">
+                  Player#trackStart
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventplayerwarn'
+                  class="">
+                  Player#warn
+                  
+                </a>
                 
                 </li>
               
@@ -322,6 +422,18 @@
     </div>
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>stats</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+          : The statistics of the node
+
+          
+        </div>
+      
+    </div>
   
 
   
@@ -619,6 +731,216 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='eventlavalinknodeerror'>
+      LavalinkNode#error
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fired whenver the node encounters an error</p>
+
+    <div class='pre p1 fill-light mt0'>LavalinkNode#error</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventlavalinknodeready'>
+      LavalinkNode#ready
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fires whenever the node becomes ready to accept players</p>
+
+    <div class='pre p1 fill-light mt0'>LavalinkNode#ready</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventlavalinknodemessage'>
+      LavalinkNode#message
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fires whenever the node emits a message</p>
+
+    <div class='pre p1 fill-light mt0'>LavalinkNode#message</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventlavalinknodedisconnected'>
+      LavalinkNode#disconnected
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fires whenever the node disconnects</p>
+
+    <div class='pre p1 fill-light mt0'>LavalinkNode#disconnected</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='player'>
       Player
     </h3>
@@ -682,6 +1004,67 @@
     </div>
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>node</span> <code class='quiet'>(<a href="#lavalinknode">LavalinkNode</a>)</code>
+          : The node supporting this player
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>guild</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : The ID of the guild where this player is used
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>shard</span> <code class='quiet'>(module:eris.Shard)</code>
+          : The shard that runs this player
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>paused</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
+          : Whether or not the playback for this player is paused
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>connected</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
+          : Whether or not the player is fully connected
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>state</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+          : The current state of the player
+
+          
+            <ul>
+              
+                <li><code>state.time</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?
+                  
+                  <p>The UNIX timestamp when this player started playing</p>
+</li>
+              
+                <li><code>state.position</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?
+                  
+                  <p>A time in ms representing the position of the track the player is currently playing</p>
+</li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
   
 
   
@@ -1374,6 +1757,420 @@ In order to use this, order the node to load the track first</p>
     </div>
   
 </div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayerready'>
+      Player#ready
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fired whenever the player is ready to accept tracks</p>
+
+    <div class='pre p1 fill-light mt0'>Player#ready</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayertrackend'>
+      Player#trackEnd
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This will be fired whenever a track stops playing</p>
+<p>A track can end for many reasons!
+You should check the reason property before doing additional logic,
+like playing new tracks</p>
+
+    <div class='pre p1 fill-light mt0'>Player#trackEnd</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>track</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : The track that has ended
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>reason</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : Why the track ended
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>Player.on(<span class="hljs-string">'trackEnd'</span>, ctx =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`The track <span class="hljs-subst">${ctx.track}</span> has ended`</span>))</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayertrackerror'>
+      Player#trackError
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This will be fired whenever lavalink encounters an error while playing a track</p>
+
+    <div class='pre p1 fill-light mt0'>Player#trackError</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>track</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : The track that has ended
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>error</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : Why the track errored
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>Player.on(<span class="hljs-string">'trackError'</span>, ctx =&gt; <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`The track <span class="hljs-subst">${ctx.track}</span> crashed!`</span>, ctx.error))</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayertrackstuck'>
+      Player#trackStuck
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This will be fired whenever lavalink is playing a track, but the track hasn't progressed for a set amount of time</p>
+
+    <div class='pre p1 fill-light mt0'>Player#trackStuck</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>track</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : The track that got stuck
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>Player.on(<span class="hljs-string">'trackStuck'</span>, ctx =&gt; <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`The track <span class="hljs-subst">${ctx.track}</span> got stuck!`</span>))</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayertrackstart'>
+      Player#trackStart
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This will be fired whenever lavalink starts playing a track</p>
+
+    <div class='pre p1 fill-light mt0'>Player#trackStart</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>track</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+          : The track that's now playing
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>Player.on(<span class="hljs-string">'trackStart'</span>, ctx =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Now playing track <span class="hljs-subst">${ctx.track}</span>`</span>))</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventplayerwarn'>
+      Player#warn
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Fired whenever the player encounters something non-breaking, but noteworthy</p>
+
+    <div class='pre p1 fill-light mt0'>Player#warn</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
