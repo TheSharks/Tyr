@@ -32,7 +32,7 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "eris": "^0.13.0",
+    "eris": "*",
     "superagent": "^5.2.2",
     "ws": "^7.2.5"
   }

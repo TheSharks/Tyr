@@ -13,6 +13,8 @@ const { Collection } = require('eris')
  * @param {Number} options.shards How many shards the client is running
  * @param {Object} [options.regions] What regions to use
  * @param {String} [options.defaultRegion='us'] The default region to use if no regions correspond
+ *
+ * @see {@link https://abal.moe/Eris/docs/Collection|Eris documentation on Collection}
  */
 class LavalinkVoiceConnectionManager extends Collection {
   constructor (nodes, options = {}) {
