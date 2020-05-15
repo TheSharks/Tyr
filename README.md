@@ -11,7 +11,7 @@ const Eris = require('eris')
 const bot = new Eris('cooltoken')
 const { LavalinkVoiceConnectionManager } = require('@thesharks/tyr')
 
-bot.voiceConnections = new LavalinkVoiceConnectionManager([
+if (!(bot.voiceConnections instanceof LavalinkVoiceConnectionManager)) bot.voiceConnections = new LavalinkVoiceConnectionManager([
   {
     host: 'localhost',
     port: 8080,
