@@ -29,6 +29,7 @@ try {
  * @fires Player#trackError
  * @fires Player#warn
  * @fires Player#ready
+ * @fires Player#disconnected
  */
 class Player extends EventEmitter {
   constructor (node, guild, shard) {
@@ -239,6 +240,12 @@ class Player extends EventEmitter {
          * @example Player.on('trackStart', ctx => console.log(`Now playing track ${ctx.track}`))
          */
         case 'TrackStartEvent': return this.emit('trackStart', msg)
+        /**
+         * This will be fired when the player disconnects due to the websocket breaking
+         * @event Player#disconnected
+         * @type {Object}
+         */
+        case 'WebSocketClosedEvent': return this.emit('disconnected', msg)
         /**
          * Fired whenever the player encounters something non-breaking, but noteworthy
          * @event Player#warn

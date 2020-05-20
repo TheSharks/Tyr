@@ -89,6 +89,13 @@ class LavalinkVoiceConnectionManager extends Collection {
         delete this.pendingGuilds[data.guild_id]
       }
     })
+    player.once('disconnected', ctx => {
+      if (this.pendingGuilds[data.guild_id]) {
+        this.pendingGuilds[data.guild_id].rej(new Error(ctx.reason || 'Disconnected'))
+        delete this.pendingGuilds[data.guild_id]
+      }
+      this.delete(data.guild_id)
+    })
     player.connect({
       sessionId: data.session_id,
       guildId: data.guild_id,
