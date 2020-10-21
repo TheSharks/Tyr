@@ -1,5 +1,5 @@
 const WebSocket = require('ws')
-const SuperAgent = require('superagent')
+const fetch = require('node-fetch')
 let EventEmitter
 
 try {
@@ -102,10 +102,13 @@ class LavalinkNode extends EventEmitter {
    * @throws {Error} Throws when the returned response from Lavalink is unusable
    */
   async loadTracks (search) {
-    const data = await SuperAgent
-      .get(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`)
-      .set('Authorization', this.password)
-    if (data.body) return data.body
+    // const data = await SuperAgent
+    //   .get(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`)
+    //   .set('Authorization', this.password)
+    const data = await fetch(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`, {
+      headers: { Authorization: this.password }
+    })
+    if (data.ok) return await data.json()
     else throw Error('Unusable response')
   }
 
