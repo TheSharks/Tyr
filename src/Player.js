@@ -199,6 +199,7 @@ class Player extends EventEmitter {
   onNodeMessage (msg) {
     if (msg.op === 'playerUpdate') {
       this.state = msg.state
+      this.emit('stateUpdate', msg.state)
     }
     if (msg.op === 'event') {
       switch (msg.type) {
