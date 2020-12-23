@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      LavalinkNode.js - Documentation
+  </title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  
+  <link type="text/css" rel="stylesheet" href="styles/collapse.css">
+  
+
+  
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li >
+        <a href="index.html">
+          
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+          
+        </a>
+      </li>
+
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      @TheSharks/Tyr
+    </h3>
+
+    
+
+    <h3>Classes</h3><ul><li id="LavalinkNode-nav"><a href="LavalinkNode.html">LavalinkNode</a><ul class='methods'><li data-type="method" id="LavalinkNode-connect-nav"><a href="LavalinkNode.html#connect">connect</a></li><li data-type="method" id="LavalinkNode-destroy-nav"><a href="LavalinkNode.html#destroy">destroy</a></li><li data-type="method" id="LavalinkNode-loadTracks-nav"><a href="LavalinkNode.html#loadTracks">loadTracks</a></li><li data-type="method" id="LavalinkNode-send-nav"><a href="LavalinkNode.html#send">send</a></li></ul></li><li id="LavalinkVoiceConnectionManager-nav"><a href="LavalinkVoiceConnectionManager.html">LavalinkVoiceConnectionManager</a><ul class='methods'><li data-type="method" id="LavalinkVoiceConnectionManager-remapNodes-nav"><a href="LavalinkVoiceConnectionManager.html#remapNodes">remapNodes</a></li></ul></li><li id="Player-nav"><a href="Player.html">Player</a><ul class='methods'><li data-type="method" id="Player-destroy-nav"><a href="Player.html#destroy">destroy</a></li><li data-type="method" id="Player-disconnect-nav"><a href="Player.html#disconnect">disconnect</a></li><li data-type="method" id="Player-eq-nav"><a href="Player.html#eq">eq</a></li><li data-type="method" id="Player-play-nav"><a href="Player.html#play">play</a></li><li data-type="method" id="Player-seek-nav"><a href="Player.html#seek">seek</a></li><li data-type="method" id="Player-setVolume-nav"><a href="Player.html#setVolume">setVolume</a></li><li data-type="method" id="Player-stop-nav"><a href="Player.html#stop">stop</a></li><li data-type="method" id="Player-switchChannel-nav"><a href="Player.html#switchChannel">switchChannel</a></li><li data-type="method" id="Player-togglePlayback-nav"><a href="Player.html#togglePlayback">togglePlayback</a></li><li data-type="method" id="Player-updateVoiceState-nav"><a href="Player.html#updateVoiceState">updateVoiceState</a></li></ul></li></ul>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        LavalinkNode.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>const WebSocket = require('ws')
+const fetch = require('node-fetch')
+let EventEmitter
+
+try {
+  EventEmitter = require('eventemitter3')
+} catch (_) {
+  EventEmitter = require('events').EventEmitter
+}
+
+/**
+ * @extends EventEmitter
+ * @param {Object} options Node options
+ * @param {String} options.host The address of the node
+ * @param {Number} options.port The port of the node
+ * @param {Number} options.shards The number of shards your bot has
+ * @param {String} options.password The password of the node
+ * @param {String} options.userId The user id of your bot
+ * @param {String} options.region The geographical region where the node is located
+ * @param {Boolean} [options.autoReconnect=true] Whether or not to automatically try reconnecting to the node
+ *
+ * @property {Object} stats The statistics of the node
+ *
+ * @fires LavalinkNode#error
+ * @fires LavalinkNode#disconnected
+ * @fires LavalinkNode#ready
+ * @fires LavalinkNode#message
+ */
+class LavalinkNode extends EventEmitter {
+  constructor (options) {
+    super()
+
+    this.host = options.host
+    this.port = options.port
+    this.address = `${this.host}:${this.port}`
+    this.shards = options.shards
+    this.password = options.password || 'youshallnotpass'
+    this.userId = options.userId
+    this.connected = false
+    this.retries = 0
+    this.region = options.region || 'us'
+    this.autoReconnect = options.autoReconnect || true
+    this.stats = {}
+
+    this.connect()
+  }
+
+  /**
+   * Connect to the node
+   * @returns {void}
+   */
+  connect () {
+    this.ws = new WebSocket(`ws://${this.address}`, {
+      headers: {
+        Authorization: this.password,
+        'Num-Shards': this.shards,
+        'User-Id': this.userId
+      }
+    })
+
+    this.ws.on('open', this._ready.bind(this))
+    this.ws.on('message', this._onMessage.bind(this))
+    /**
+     * Fired whenver the node encounters an error
+     * @event LavalinkNode#error
+     * @type {Error}
+     */
+    this.ws.on('error', e => this.emit('error', e))
+    this.ws.on('close', this._disconnected.bind(this))
+  }
+
+  /**
+   * Destroy the connection to the node
+   * @returns {void}
+   */
+  destroy () {
+    if (this.ws) {
+      this.ws.removeAllListeners()
+      if (this.ws.readyState !== WebSocket.CLOSED) this.ws.close()
+      delete this.ws
+    }
+  }
+
+  /**
+   * Send data to the node
+   * @param {*} data JSON encodable payload
+   * @returns {void}
+   */
+  send (data) {
+    try {
+      data = JSON.stringify(data)
+    } catch (e) {
+      this.emit('error', new Error('Invalid payload supplied'))
+    }
+    if (this.ws.readyState === WebSocket.OPEN) this.ws.send(data)
+  }
+
+  /**
+   * Load tracks from the node
+   * @param {String} search Search query to use
+   * @returns {Promise&lt;Object>} The response from the node
+   * @throws {Error} Throws when the returned response from Lavalink is unusable
+   */
+  async loadTracks (search) {
+    // const data = await SuperAgent
+    //   .get(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`)
+    //   .set('Authorization', this.password)
+    const data = await fetch(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`, {
+      headers: { Authorization: this.password }
+    })
+    if (data.ok) return await data.json()
+    else throw Error('Unusable response')
+  }
+
+  _ready () {
+    if (this.reconnectInterval) {
+      clearInterval(this.reconnectInterval)
+      this.reconnectInterval = null
+    }
+    this.connected = true
+    this.retries = 0
+    /**
+     * Fires whenever the node becomes ready to accept players
+     * @event LavalinkNode#ready
+     */
+    this.emit('ready')
+  }
+
+  _onMessage (msg) {
+    try {
+      msg = JSON.parse(msg)
+    } catch (e) {
+      this.emit('error', new Error('Unable to decode WS messsage'))
+    }
+    if (msg.op &amp;&amp; msg.op === 'stats') this.stats = msg
+    /**
+     * Fires whenever the node emits a message
+     * @event LavalinkNode#message
+     * @type {Object}
+     */
+    this.emit('message', msg)
+  }
+
+  _disconnected () {
+    /**
+     * Fires whenever the node disconnects
+     * @event LavalinkNode#disconnected
+     */
+    this.emit('disconnected')
+    this.connected = false
+    delete this.ws
+    if (this.autoReconnect) {
+      this.reconnectInterval = setTimeout(() => {
+        this.retries++
+        this.connect()
+      }, Math.pow(this.retries + 2, 2) * 1000)
+    }
+  }
+}
+
+module.exports = LavalinkNode
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
+  </footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+
+</body>
+</html>
