@@ -69,7 +69,9 @@ class Player extends EventEmitter {
 
   /**
    * Instruct the player to play a loaded track
+   * 
    * In order to use this, order the node to load the track first
+   * @see LavalinkNode#loadTracks
    * @param {String} track Base64 string corresponding to the track
    * @return {void}
    */
@@ -167,7 +169,9 @@ class Player extends EventEmitter {
 
   /**
    * Change the equalizer for this player
-   * @param {{ band: Number, gain: Number }[]} bands Array with bands
+   * @param {Object[]} bands Array with bands
+   * @param {Number} bands.band The band to adjust
+   * @param {Number} bands.gain The gain of the band
    * @returns {void}
    */
   eq (bands) {
