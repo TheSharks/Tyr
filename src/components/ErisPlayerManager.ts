@@ -73,7 +73,7 @@ export class ErisPlayerManager extends Collection<Player> {
       if (!this.#pending[data.guild_id]) {
         return
       }
-      player = new Player(this.selectBestLavalinkNode(data.endpoint), data.guild_id, data.shard)
+      player = new Player(this.selectBestLavalinkNode(data.endpoint), data.guild_id, data.shard.sendWS)
       this.set(data.guild_id, player)
     }
     player.once('ready', () => {
