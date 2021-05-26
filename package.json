@@ -1,15 +1,20 @@
 {
   "name": "@thesharks/tyr",
-  "version": "1.2.1",
-  "description": "Lightweight Lavalink implementation",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Library-agnostic and lightweight Lavalink implementation",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "eslint .",
-    "docs": "jsdoc --configure .jsdoc.json --verbose"
+    "test": "eslint src/**/*.ts",
+    "prepack": "tsc",
+    "docs": "typedoc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheSharks/Tyr.git"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./eris": "./dist/eris.js"
   },
   "keywords": [
     "lavalink",
@@ -26,18 +31,34 @@
     "url": "https://github.com/sponsors/Dougley"
   },
   "devDependencies": {
-    "eslint": "^7.16.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "@kyflx-dev/lavalink-types": "^1.0.2",
+    "@types/node": "^15.6.1",
+    "@types/node-fetch": "^2.5.10",
+    "@types/ws": "^7.4.4",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^4.1.0",
-    "jsdoc": "^3.6.6",
-    "jsdoc-fresh": "^1.0.5"
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4"
   },
   "dependencies": {
-    "eris": "*",
     "node-fetch": "^2.6.1",
-    "ws": "^7.4.1"
+    "ws": "^7.4.5"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "peerDependencies": {
+    "eris": "^0.15.1"
+  },
+  "peerDependenciesMeta": {
+    "eris": {
+      "optional": true
+    }
   }
 }
