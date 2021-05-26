@@ -31,7 +31,7 @@
     "url": "https://github.com/sponsors/Dougley"
   },
   "devDependencies": {
-    "@kyflx-dev/lavalink-types": "^1.0.2",
+    "@lavaclient/types": "^2.0.3",
     "@types/node": "^15.6.1",
     "@types/node-fetch": "^2.5.10",
     "@types/ws": "^7.4.4",

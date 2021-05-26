@@ -5,7 +5,7 @@ import { VoiceUpdate } from './interfaces/VoiceUpdate'
 import { WebsocketImplementation } from './interfaces/WebsocketImplementation'
 import { TrackPlay } from './interfaces/TrackPlay'
 
-import * as LavalinkTypes from '@kyflx-dev/lavalink-types'
+import * as LavalinkTypes from '@lavaclient/types'
 
 export {
   Node,

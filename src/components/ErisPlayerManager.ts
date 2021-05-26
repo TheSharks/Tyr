@@ -1,4 +1,4 @@
-import { PlayerEvent, PlayerUpdate } from '@kyflx-dev/lavalink-types'
+import { PlayerEvent, PlayerUpdate } from '@lavaclient/types'
 import { Collection } from 'eris'
 import { NodeConstructor, PlayerManagerOptions } from '../interfaces/NodeConstructor'
 import { Snowflake } from '../types/misc'
@@ -148,7 +148,6 @@ export class ErisPlayerManager extends Collection<Player> {
   }
 
   private onNodeMessage (msg: PlayerEvent | PlayerUpdate) {
-    // @ts-ignore - Typing error (fixme)
     const player = this.get(msg.guildId)
     if (!player) return
     player.onNodeMessage(msg)

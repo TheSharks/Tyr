@@ -3,7 +3,7 @@ import * as WebSocket from 'ws'
 import fetch from 'node-fetch'
 import { EventEmitter } from 'events'
 import { NodeOptions } from '../interfaces/NodeOptions'
-import { LoadTrackResponse, NodeStats, PlayerEvent, PlayerUpdate } from '@kyflx-dev/lavalink-types'
+import { LoadTracksResponse, StatsData, PlayerEvent, PlayerUpdate } from '@lavaclient/types'
 import { IncomingMessage, OPType, IncomingStats } from '../types/lavalink-incoming'
 
 interface Node extends NodeOptions {
@@ -45,7 +45,7 @@ class Node extends EventEmitter {
    *
    * Will be undefined until the node has been ready for at least a minute
    */
-  stats: NodeStats | undefined
+  stats: StatsData | undefined
   #ws: WebSocket | undefined
   #reconnectInterval: NodeJS.Timeout | undefined
   constructor (options: NodeOptions) {
@@ -109,7 +109,7 @@ class Node extends EventEmitter {
    * @param search The search query, supports Lavalink specific modifiers such as `ytsearch` and `scsearch`
    * @returns The response from the node
    */
-  async loadTracks (search: string): Promise<LoadTrackResponse> {
+  async loadTracks (search: string): Promise<LoadTracksResponse> {
     const data = await fetch(`http://${this.address}/loadtracks?identifier=${encodeURIComponent(search)}`, {
       headers: { Authorization: this.password }
     })

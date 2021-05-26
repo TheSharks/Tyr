@@ -1,5 +1,5 @@
 /* eslint-disable no-dupe-class-members,no-redeclare */
-import { EqualizerBand, PlayerEvent, PlayerState, PlayerUpdate, TrackEndEvent, TrackExceptionEvent, TrackStartEvent, TrackStuckEvent, WebSocketClosedEvent } from '@kyflx-dev/lavalink-types'
+import { EqualizerBand, PlayerEvent, PlayerUpdateState, PlayerUpdate, TrackEndEvent, TrackExceptionEvent, TrackStartEvent, TrackStuckEvent, WebSocketClosedEvent, PlayerEventType } from '@lavaclient/types'
 import { EventEmitter } from 'events'
 import { TrackPlay } from '../interfaces/TrackPlay'
 import { VoiceUpdate } from '../interfaces/VoiceUpdate'
@@ -20,7 +20,7 @@ interface Player {
   /**
    * Fired when the player receives a status update from the node
    */
-   on(event: 'statusUpdate', listener: (status: PlayerState) => void): this
+   on(event: 'statusUpdate', listener: (status: PlayerUpdateState) => void): this
   /**
    * Fired when the track the player is playing has ended
    *
@@ -73,7 +73,7 @@ class Player extends EventEmitter {
    *
    * Will be undefined until some time after the player starts playing a track
    */
-  state: PlayerState | undefined
+  state: PlayerUpdateState | undefined
   #ws: WebsocketImplementation
   constructor (node: Node, guildID: Snowflake, websocket: WebsocketImplementation) {
     super()
@@ -238,7 +238,7 @@ class Player extends EventEmitter {
       return this.emit('statusUpdate', msg.state)
     }
     if (msg.op === OPType.EVENT) {
-      switch (msg.type) {
+      switch (msg.type as PlayerEventType) {
         case 'TrackEndEvent': return this.emit('trackEnd', msg)
         case 'TrackExceptionEvent': return this.emit('trackError', msg)
         case 'TrackStuckEvent': return this.emit('trackStuck', msg)

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { NodeStats } from '@kyflx-dev/lavalink-types'
+import { StatsData } from '@lavaclient/types'
 
 export declare enum OPType {
   PLAYER_UPDATE = 'playerUpdate',
@@ -11,4 +11,4 @@ export declare interface IncomingMessage {
   op: OPType
 }
 
-export declare interface IncomingStats extends IncomingMessage, NodeStats { }
+export declare interface IncomingStats extends IncomingMessage, StatsData { }
