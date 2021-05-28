@@ -4,7 +4,6 @@ import { EventEmitter } from 'events'
 import { TrackPlay } from '../interfaces/TrackPlay'
 import { VoiceUpdate } from '../interfaces/VoiceUpdate'
 import { WebsocketImplementation } from '../interfaces/WebsocketImplementation'
-import { OPType } from '../types/lavalink-incoming'
 import { Snowflake } from '../types/misc'
 import Node from './Node'
 
@@ -233,11 +232,11 @@ class Player extends EventEmitter {
    * @hidden
    */
   onNodeMessage (msg: PlayerEvent | PlayerUpdate) {
-    if (msg.op === OPType.PLAYER_UPDATE) {
+    if (msg.op === 'playerUpdate') {
       this.state = msg.state
       return this.emit('statusUpdate', msg.state)
     }
-    if (msg.op === OPType.EVENT) {
+    if (msg.op === 'event') {
       switch (msg.type as PlayerEventType) {
         case 'TrackEndEvent': return this.emit('trackEnd', msg)
         case 'TrackExceptionEvent': return this.emit('trackError', msg)

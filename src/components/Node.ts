@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import { EventEmitter } from 'events'
 import { NodeOptions } from '../interfaces/NodeOptions'
 import { LoadTracksResponse, StatsData, PlayerEvent, PlayerUpdate } from '@lavaclient/types'
-import { IncomingMessage, OPType, IncomingStats } from '../types/lavalink-incoming'
+import { IncomingMessage, IncomingStats } from '../types/lavalink-incoming'
 
 interface Node extends NodeOptions {
   /**
@@ -60,6 +60,8 @@ class Node extends EventEmitter {
     this.retries = 0
     this.region = options.region || 'global'
     this.autoReconnect = options.autoReconnect || true
+
+    this.connect()
   }
 
   /**
@@ -130,7 +132,7 @@ class Node extends EventEmitter {
   private _onMessage (msg: string) {
     try {
       const incoming = JSON.parse(msg) as IncomingMessage
-      if (incoming.op && incoming.op === OPType.STATS) {
+      if (incoming.op && incoming.op === 'stats') {
         this.stats = incoming as IncomingStats
       }
       this.emit('message', incoming as PlayerUpdate | PlayerEvent)
