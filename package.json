@@ -16,6 +16,9 @@
     ".": "./dist/index.js",
     "./eris": "./dist/eris.js"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [
     "lavalink",
     "wildbeast",
