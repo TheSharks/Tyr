@@ -11,7 +11,7 @@
  *
  * ```js
  * // if your're using eris, the API maps 1:1
- * const WebsocketAbstract = getShardSomehow().sendWS
+ * const WebsocketAbstract = (op, ctx) => data.shard.sendWS(op, ctx)
  * new Player(someNode, '110462143152803840', WebsocketAbstract)
  * ```
  *
