@@ -95,6 +95,11 @@ export class ErisPlayerManager extends Collection<Player> {
     })
   }
 
+  /**
+   * Select the least busy Lavalink node which is in the same region as the requesting guild
+   * @param endpoint The endpoint Discord returned which should be connected to
+   * @returns The most optimal node to use
+   */
   private selectBestLavalinkNode (endpoint: string) {
     const region = this.voiceRegionFromEndpoint(endpoint)
     const availableNodes = this.nodes.filter(x => x.connected).sort((a, b) => {
@@ -108,6 +113,11 @@ export class ErisPlayerManager extends Collection<Player> {
     else return regionalNodes[0]
   }
 
+  /**
+   * Select a load balancing region from Discord's voice server
+   * @param endpoint The endpoint Discord returned which should be connected to
+   * @returns The load balancing region
+   */
   private voiceRegionFromEndpoint (endpoint: string) {
     if (!endpoint) return this.defaultRegion
     for (const key in this.regions) {
@@ -118,6 +128,13 @@ export class ErisPlayerManager extends Collection<Player> {
     return this.defaultRegion
   }
 
+  /**
+   * Connect to new nodes
+   * @param nodes New nodes to connect to
+   * @param options Player manager options
+   * @param destructive Whether or not the current connections should be destroyed
+   * @returns The nodes which are used now
+   */
   remapNodes (nodes: NodeConstructor[], options: PlayerManagerOptions, destructive: boolean = false) {
     if (destructive) {
       if (this.nodes.length > 0) this.nodes.forEach(x => x.destroy())
