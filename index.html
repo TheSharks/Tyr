@@ -1,154 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="default no-js">
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>
-      Home - Documentation
-  </title>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-  
-  <link type="text/css" rel="stylesheet" href="styles/collapse.css">
-  
-
-  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@thesharks/tyr</title>
+	<meta name="description" content="Documentation for @thesharks/tyr">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
-
 <body>
-  <svg style="display: none;">
-    <defs>
-      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
-      </symbol>
-    </defs>
-  </svg>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@thesharks/tyr</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@thesharks/tyr</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#tyr" id="tyr" style="color: inherit; text-decoration: none;">
+					<h1>Tyr</h1>
+				</a>
+				<p>Tyr is a lightweight and library-agnostic <a href="https://github.com/freyacodes/Lavalink">Lavalink</a> implementation.</p>
+				<p>Tyr includes a connection manager class for <a href="https://github.com/abalabahaha/Eris">Eris</a>.</p>
+				<a href="#getting-started-with-eris" id="getting-started-with-eris" style="color: inherit; text-decoration: none;">
+					<h1>Getting started with Eris</h1>
+				</a>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Tyr includes a <code>ErisPlayerManager</code> that replaces the built-in manager from Eris</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">Eris</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;eris&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bot</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Eris</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;cooltoken&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">ErisPlayerManager</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;@thesharks/tyr/eris&#039;</span><span style="color: #000000">)</span>
 
-  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-  <label for="nav-trigger" class="navicon-button x">
-    <div class="navicon"></div>
-  </label>
-
-  <label for="nav-trigger" class="overlay"></label>
-
-  <div class="top-nav-wrapper">
-    <ul>
-      <li  class="active" >
-        <a href="index.html">
-          
-          
-            <svg fill="#0095dd" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-          
-        </a>
-      </li>
-
-      
-
-    </ul>
-  </div>
-
-  <nav>
-    <h3 class="reference-title">
-      @TheSharks/Tyr
-    </h3>
-
-    
-
-    <h3>Classes</h3><ul><li id="LavalinkNode-nav"><a href="LavalinkNode.html">LavalinkNode</a><ul class='methods'><li data-type="method" id="LavalinkNode-connect-nav"><a href="LavalinkNode.html#connect">connect</a></li><li data-type="method" id="LavalinkNode-destroy-nav"><a href="LavalinkNode.html#destroy">destroy</a></li><li data-type="method" id="LavalinkNode-loadTracks-nav"><a href="LavalinkNode.html#loadTracks">loadTracks</a></li><li data-type="method" id="LavalinkNode-send-nav"><a href="LavalinkNode.html#send">send</a></li></ul></li><li id="LavalinkVoiceConnectionManager-nav"><a href="LavalinkVoiceConnectionManager.html">LavalinkVoiceConnectionManager</a><ul class='methods'><li data-type="method" id="LavalinkVoiceConnectionManager-remapNodes-nav"><a href="LavalinkVoiceConnectionManager.html#remapNodes">remapNodes</a></li></ul></li><li id="Player-nav"><a href="Player.html">Player</a><ul class='methods'><li data-type="method" id="Player-destroy-nav"><a href="Player.html#destroy">destroy</a></li><li data-type="method" id="Player-disconnect-nav"><a href="Player.html#disconnect">disconnect</a></li><li data-type="method" id="Player-eq-nav"><a href="Player.html#eq">eq</a></li><li data-type="method" id="Player-play-nav"><a href="Player.html#play">play</a></li><li data-type="method" id="Player-seek-nav"><a href="Player.html#seek">seek</a></li><li data-type="method" id="Player-setVolume-nav"><a href="Player.html#setVolume">setVolume</a></li><li data-type="method" id="Player-stop-nav"><a href="Player.html#stop">stop</a></li><li data-type="method" id="Player-switchChannel-nav"><a href="Player.html#switchChannel">switchChannel</a></li><li data-type="method" id="Player-togglePlayback-nav"><a href="Player.html#togglePlayback">togglePlayback</a></li><li data-type="method" id="Player-updateVoiceState-nav"><a href="Player.html#updateVoiceState">updateVoiceState</a></li></ul></li></ul>
-  </nav>
-
-  <div id="main">
-    
-
-    
-      
-
-
-
-    
-
-      
-
-
-  <section class="readme">
-    <article>
-      <h1>Tyr</h1>
-<p>Tyr is a lightweight <a href="https://github.com/Frederikam/Lavalink">Lavalink</a> implementation built around <a href="https://github.com/abalabahaha/Eris">Eris</a>.</p>
-<h1>Getting started</h1>
-<p>This is a quick overview on how to get started with Tyr, for more comprehensive documentation please see the <a href="https://thesharks.github.io/Tyr">docs</a></p>
-<h2>Installation</h2>
-<p>Tyr includes a <code>VoiceConnectionManager</code> that replaces the built-in one from Eris</p>
-<pre class="prettyprint source lang-js"><code>const Eris = require('eris')
-const bot = new Eris('cooltoken')
-const { LavalinkVoiceConnectionManager } = require('@thesharks/tyr')
-
-if (!(bot.voiceConnections instanceof LavalinkVoiceConnectionManager)) bot.voiceConnections = new LavalinkVoiceConnectionManager([
-  {
-    host: 'localhost',
-    port: 8080,
-    password: 'youshallnotpass',
-    region: 'eu', // what region is the node in?
-  }
-], {
-  shards: 2, // how many shards are you running?
-  userId: '107904023901777920' // what's the user ID from your bot?
-})
+<span style="color: #AF00DB">if</span><span style="color: #000000"> (!(</span><span style="color: #001080">bot</span><span style="color: #000000">.</span><span style="color: #001080">voiceConnections</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">ErisPlayerManager</span><span style="color: #000000">)) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">bot</span><span style="color: #000000">.</span><span style="color: #001080">voiceConnections</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">ErisPlayerManager</span><span style="color: #000000">([</span>
+<span style="color: #000000">    {</span>
+<span style="color: #000000">      </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;localhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;youshallnotpass&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">region:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;eu&#039;</span><span style="color: #000000">, </span><span style="color: #008000">// what region is the node in?</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">  ], {</span>
+<span style="color: #000000">    </span><span style="color: #001080">shards:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #008000">// how many shards are you running?</span>
+<span style="color: #000000">    </span><span style="color: #001080">userId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;107904023901777920&#039;</span><span style="color: #000000"> </span><span style="color: #008000">// what&#039;s the user ID from your bot?</span>
+<span style="color: #000000">  })</span>
+<span style="color: #000000">}</span>
 </code></pre>
-<h2>Usage</h2>
-<p>To join voice channels and manipulate players, use the same methods you'd use with Eris</p>
-<pre class="prettyprint source lang-js"><code>bot.joinVoiceChannel('302538492393816086').then(player => {
-  // do something cool with the player
-})
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>To join voice channels and manipulate players, use the same methods you&#39;d use with Eris</p>
+				<pre><code class="language-js"><span style="color: #001080">bot</span><span style="color: #000000">.</span><span style="color: #795E26">joinVoiceChannel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;302538492393816086&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">player</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// do something cool with the player</span>
+<span style="color: #000000">})</span>
 </code></pre>
-<p>Playing tracks is done by first calling <code>&lt;LavalinkNode&gt;.loadTracks</code></p>
-<pre class="prettyprint source lang-js"><code>const player = bot.voiceConnections.get('110462143152803840')
-player.node.loadTracks('qFDP9egTwfM').then(result => {
-  player.play(result.tracks[0].track)
-})
+				<p>Playing tracks is done by first calling <code>&lt;Node&gt;.loadTracks</code></p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #001080">bot</span><span style="color: #000000">.</span><span style="color: #001080">voiceConnections</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;110462143152803840&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">player</span><span style="color: #000000">.</span><span style="color: #001080">node</span><span style="color: #000000">.</span><span style="color: #795E26">loadTracks</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;ytsearch:qFDP9egTwfM&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">result</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">player</span><span style="color: #000000">.</span><span style="color: #795E26">play</span><span style="color: #000000">(</span><span style="color: #001080">result</span><span style="color: #000000">.</span><span style="color: #001080">tracks</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">].</span><span style="color: #001080">track</span><span style="color: #000000">)</span>
+<span style="color: #000000">})</span>
 </code></pre>
-<h2>Regions</h2>
-<p>Tyr will try to balance players to nodes that are the least busy, and are in the same region as the guild the player is created from.
-By default, Tyr recognizes the following regions and what voice servers they correspond to:</p>
-<pre class="prettyprint source lang-js"><code>{
-  asia: ['singapore', 'hongkong', 'russia', 'japan', 'india', 'dubai'],
-  eu: ['europe', 'amsterdam', 'london', 'frankfurt', 'eu-central', 'eu-west', 'vip-amsterdam'],
-  us: ['us-west', 'us-east', 'us-central', 'us-south', 'brazil', 'vip-us-west', 'vip-us-east'],
-  africa: ['southafrica'],
-  australia: ['sidney']
-}
+				<a href="#regions" id="regions" style="color: inherit; text-decoration: none;">
+					<h2>Regions</h2>
+				</a>
+				<p>The connection manager will try to balance players to nodes that are the least busy, and are in the same region as the guild the player is created from.
+				By default, the connection manager recognizes the following regions and what voice servers they correspond to:</p>
+				<pre><code class="language-js"><span style="color: #000000">{</span>
+<span style="color: #000000">  asia: [</span><span style="color: #A31515">&#039;singapore&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;hongkong&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;russia&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;japan&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;india&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;dubai&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">  eu: [</span><span style="color: #A31515">&#039;europe&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;amsterdam&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;london&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;frankfurt&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;eu-central&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;eu-west&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;vip-amsterdam&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">  us: [</span><span style="color: #A31515">&#039;us-west&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;us-east&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;us-central&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;us-south&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;brazil&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;vip-us-west&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;vip-us-east&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">  africa: [</span><span style="color: #A31515">&#039;southafrica&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">  australia: [</span><span style="color: #A31515">&#039;sidney&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">}</span>
 </code></pre>
-<p>It's possible to override the default regions by passing a new object with regions when constructing the connection manager</p>
-    </article>
-  </section>
-
-
-    
-
-
-  </div>
-
-  <br class="clear">
-
-  <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
-  </footer>
-
-  <script src="scripts/linenumber.js"></script>
-  <script src="scripts/pagelocation.js"></script>
-
-  
-
+				<p>It&#39;s possible to override the default regions by passing a new object with regions when constructing the connection manager</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-namespace tsd-is-external">
+						<a href="modules/lavalinktypes.html">Lavalink<wbr>Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/node.html" class="tsd-kind-icon">Node</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/nodeoptions.html" class="tsd-kind-icon">Node<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/trackplay.html" class="tsd-kind-icon">Track<wbr>Play</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/voiceupdate.html" class="tsd-kind-icon">Voice<wbr>Update</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#websocketimplementation" class="tsd-kind-icon">Websocket<wbr>Implementation</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
