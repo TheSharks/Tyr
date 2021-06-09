@@ -34,15 +34,15 @@
     "url": "https://github.com/sponsors/Dougley"
   },
   "devDependencies": {
-    "@lavaclient/types": "^2.0.3",
-    "@types/node": "^15.6.1",
+    "@lavaclient/types": "^2.0.8",
+    "@types/node": "^15.12.2",
     "@types/node-fetch": "^2.5.10",
     "@types/ws": "^7.4.4",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "@typescript-eslint/parser": "^4.25.0",
-    "eslint": "^7.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "eslint": "^7.28.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^4.1.0",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "ws": "^7.4.5"
+    "ws": "^7.4.6"
   },
   "engines": {
     "node": ">=14"
