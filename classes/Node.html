@@ -102,12 +102,14 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Node.html#address" class="tsd-kind-icon">address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Node.html#apiVersion" class="tsd-kind-icon">api<wbr>Version</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#autoReconnect" class="tsd-kind-icon">auto<wbr>Reconnect</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Node.html#connected" class="tsd-kind-icon">connected</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#host" class="tsd-kind-icon">host</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#password" class="tsd-kind-icon">password</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#port" class="tsd-kind-icon">port</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#region" class="tsd-kind-icon">region</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#resumeToken" class="tsd-kind-icon">resume<wbr>Token</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Node.html#retries" class="tsd-kind-icon">retries</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Node.html#shards" class="tsd-kind-icon">shards</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Node.html#stats" class="tsd-kind-icon">stats</a></li>
@@ -162,7 +164,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from NodeOptions.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L55">src/components/Node.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L66">src/components/Node.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,12 +186,27 @@
 					<div class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L38">src/components/Node.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L49">src/components/Node.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The complete address of the node</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="apiVersion" class="tsd-anchor"></a>
+					<h3>api<wbr>Version</h3>
+					<div class="tsd-signature tsd-kind-icon">api<wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L39">src/components/Node.ts:39</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The API version of the node</p>
 						</div>
 					</div>
 				</section>
@@ -200,7 +217,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#autoReconnect">autoReconnect</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L34">src/interfaces/NodeOptions.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L34">src/interfaces/NodeOptions.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -220,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">connected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L42">src/components/Node.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L53">src/components/Node.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -236,7 +253,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#host">host</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L5">src/interfaces/NodeOptions.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L5">src/interfaces/NodeOptions.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -252,7 +269,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#password">password</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L17">src/interfaces/NodeOptions.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L17">src/interfaces/NodeOptions.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -268,7 +285,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#port">port</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L9">src/interfaces/NodeOptions.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L9">src/interfaces/NodeOptions.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -284,7 +301,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#region">region</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L29">src/interfaces/NodeOptions.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L29">src/interfaces/NodeOptions.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -300,13 +317,29 @@
 						</dl>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="resumeToken" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> resume<wbr>Token</h3>
+					<div class="tsd-signature tsd-kind-icon">resume<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#resumeToken">resumeToken</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L38">src/interfaces/NodeOptions.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The resumption token to use when reconnecting to the node</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="retries" class="tsd-anchor"></a>
 					<h3>retries</h3>
 					<div class="tsd-signature tsd-kind-icon">retries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L46">src/components/Node.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L57">src/components/Node.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,7 +355,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#shards">shards</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L13">src/interfaces/NodeOptions.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L13">src/interfaces/NodeOptions.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -337,7 +370,7 @@
 					<div class="tsd-signature tsd-kind-icon">stats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/LavalinkTypes.StatsData.html" class="tsd-signature-type" data-tsd-kind="Interface">StatsData</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L52">src/components/Node.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L63">src/components/Node.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -354,7 +387,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../interfaces/NodeOptions.html">NodeOptions</a>.<a href="../interfaces/NodeOptions.html#user">user</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/NodeOptions.ts#L21">src/interfaces/NodeOptions.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/interfaces/NodeOptions.ts#L21">src/interfaces/NodeOptions.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -475,7 +508,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L74">src/components/Node.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L85">src/components/Node.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -497,7 +530,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L92">src/components/Node.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L105">src/components/Node.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -625,7 +658,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L118">src/components/Node.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L131">src/components/Node.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,12 +732,13 @@
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;error&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;message&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><a href="../modules/LavalinkTypes.html#PlayerEvent" class="tsd-signature-type" data-tsd-kind="Type alias">PlayerEvent</a><span class="tsd-signature-symbol"> | </span><a href="../modules/LavalinkTypes.html#PlayerUpdate" class="tsd-signature-type" data-tsd-kind="Type alias">PlayerUpdate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;disconnected&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;resumed&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L13">src/components/Node.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L14">src/components/Node.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -738,7 +772,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L18">src/components/Node.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L19">src/components/Node.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -778,7 +812,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L23">src/components/Node.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L24">src/components/Node.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -818,7 +852,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L28">src/components/Node.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L29">src/components/Node.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -849,6 +883,40 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></h4>
 						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L34">src/components/Node.ts:34</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fired the node confirms it resumed a pre-existing connection</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">&quot;resumed&quot;</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></h4>
+						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
@@ -859,12 +927,13 @@
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;error&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;message&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><a href="../modules/LavalinkTypes.html#PlayerEvent" class="tsd-signature-type" data-tsd-kind="Type alias">PlayerEvent</a><span class="tsd-signature-symbol"> | </span><a href="../modules/LavalinkTypes.html#PlayerUpdate" class="tsd-signature-type" data-tsd-kind="Type alias">PlayerUpdate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;disconnected&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;resumed&quot;</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L14">src/components/Node.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L15">src/components/Node.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -893,7 +962,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L19">src/components/Node.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L20">src/components/Node.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -928,7 +997,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L24">src/components/Node.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L25">src/components/Node.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -963,13 +1032,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L29">src/components/Node.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L30">src/components/Node.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>event: <span class="tsd-signature-type">&quot;disconnected&quot;</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Node.html" class="tsd-signature-type" data-tsd-kind="Class">Node</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L35">src/components/Node.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">&quot;resumed&quot;</span></h5>
 								</li>
 								<li>
 									<h5>listener: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
@@ -1179,7 +1277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/components/Node.ts#L104">src/components/Node.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/1aa1d37/src/components/Node.ts#L117">src/components/Node.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1389,6 +1487,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="Node.html#address" class="tsd-kind-icon">address</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Node.html#apiVersion" class="tsd-kind-icon">api<wbr>Version</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Node.html#autoReconnect" class="tsd-kind-icon">auto<wbr>Reconnect</a>
 							</li>
@@ -1406,6 +1507,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Node.html#region" class="tsd-kind-icon">region</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="Node.html#resumeToken" class="tsd-kind-icon">resume<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="Node.html#retries" class="tsd-kind-icon">retries</a>
