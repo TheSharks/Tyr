@@ -32,4 +32,8 @@ export declare interface NodeOptions {
    * @default true
    */
   autoReconnect?: boolean
+  /**
+   * The resumption token to use when reconnecting to the node
+   */
+  resumeToken?: string
 }

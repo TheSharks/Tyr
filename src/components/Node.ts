@@ -5,6 +5,7 @@ import { EventEmitter } from 'events'
 import { NodeOptions } from '../interfaces/NodeOptions'
 import { LoadTracksResponse, StatsData, PlayerEvent, PlayerUpdate } from '@lavaclient/types'
 import { IncomingMessage, IncomingStats } from '../types/lavalink-incoming'
+import { IncomingMessage as HTTPMessage } from 'http'
 
 interface Node extends NodeOptions {
   /**
@@ -27,6 +28,16 @@ interface Node extends NodeOptions {
    */
    on(event: 'disconnected', listener: () => void): this
    once(event: 'disconnected', listener: () => void): this
+  /**
+   * Fired the node confirms it resumed a pre-existing connection
+   */
+   on(event: 'resumed', listener: () => void): this
+   once(event: 'resumed', listener: () => void): this
+   /**
+    * The API version of the node
+    */
+   apiVersion: number
+
 }
 /**
  * Represents a Lavalink node
@@ -76,10 +87,12 @@ class Node extends EventEmitter {
       headers: {
         Authorization: this.password,
         'Num-Shards': this.shards,
-        'User-Id': this.user
+        'User-Id': this.user,
+        'Resume-Key': this.resumeToken ?? undefined
       }
     })
 
+    this.#ws.on('upgrade', this._upgrade.bind(this))
     this.#ws.on('open', this._ready.bind(this))
     this.#ws.on('error', e => this.emit('error', e))
     this.#ws.on('message', this._onMessage.bind(this))
@@ -128,6 +141,12 @@ class Node extends EventEmitter {
       clearInterval(this.#reconnectInterval)
       this.#reconnectInterval = undefined
     }
+    if (this.resumeToken) {
+      this.send({
+        op: 'configureResuming',
+        key: this.resumeToken
+      })
+    }
     this.connected = true
     this.retries = 0
     this.emit('ready')
@@ -154,6 +173,17 @@ class Node extends EventEmitter {
         this.retries++
         this.connect()
       }, Math.pow(this.retries + 2, 2) * 1000)
+    }
+  }
+
+  private _upgrade (msg: HTTPMessage) {
+    const apiVersion = JSON.parse(msg.headers['lavalink-api-version'] as string)
+    if (apiVersion !== 3) {
+      this.emit('error', new Error(`Unsupported API version: ${apiVersion}`))
+    }
+    this.apiVersion = apiVersion
+    if (JSON.parse(msg.headers['session-resumed'] as string)) {
+      this.emit('resumed')
     }
   }
 }
