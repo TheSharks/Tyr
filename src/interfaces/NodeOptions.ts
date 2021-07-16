@@ -1,5 +1,3 @@
-import { Snowflake } from '../types/misc'
-
 export declare interface NodeOptions {
   /**
    * The address of the node
@@ -20,7 +18,7 @@ export declare interface NodeOptions {
   /**
    * The ID of the connecting client
    */
-  user: Snowflake
+  user: string
   /**
    * The geogrpahical region the node belongs to
    *

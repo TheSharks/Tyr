@@ -1,5 +1,3 @@
-import { Snowflake } from '../types/misc'
-
 export declare interface NodeConstructor {
   /**
    * The address of the node
@@ -23,7 +21,7 @@ export declare interface PlayerManagerOptions {
   /**
    * The ID of the connecting client
    */
-  userId: Snowflake
+  userId: string
   /**
    * How many shard the client is running
    */
