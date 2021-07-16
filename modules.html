@@ -64,28 +64,28 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Namespaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-namespace tsd-is-external"><a href="modules/lavalinktypes.html" class="tsd-kind-icon">Lavalink<wbr>Types</a></li>
+								<li class="tsd-kind-namespace tsd-is-external"><a href="modules/LavalinkTypes.html" class="tsd-kind-icon">Lavalink<wbr>Types</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/node.html" class="tsd-kind-icon">Node</a></li>
-								<li class="tsd-kind-class"><a href="classes/player.html" class="tsd-kind-icon">Player</a></li>
+								<li class="tsd-kind-class"><a href="classes/Node.html" class="tsd-kind-icon">Node</a></li>
+								<li class="tsd-kind-class"><a href="classes/Player.html" class="tsd-kind-icon">Player</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface"><a href="interfaces/nodeoptions.html" class="tsd-kind-icon">Node<wbr>Options</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/trackplay.html" class="tsd-kind-icon">Track<wbr>Play</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/voiceupdate.html" class="tsd-kind-icon">Voice<wbr>Update</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/NodeOptions.html" class="tsd-kind-icon">Node<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/TrackPlay.html" class="tsd-kind-icon">Track<wbr>Play</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/VoiceUpdate.html" class="tsd-kind-icon">Voice<wbr>Update</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias"><a href="modules.html#websocketimplementation" class="tsd-kind-icon">Websocket<wbr>Implementation</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#WebsocketImplementation" class="tsd-kind-icon">Websocket<wbr>Implementation</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,39 +94,14 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="websocketimplementation" class="tsd-anchor"></a>
+					<a name="WebsocketImplementation" class="tsd-anchor"></a>
 					<h3>Websocket<wbr>Implementation</h3>
 					<div class="tsd-signature tsd-kind-icon">Websocket<wbr>Implementation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>op<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/6c0f9a4/src/interfaces/WebsocketImplementation.ts#L30">src/interfaces/WebsocketImplementation.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/TheSharks/Tyr/blob/b48ee73/src/interfaces/WebsocketImplementation.ts#L30">src/interfaces/WebsocketImplementation.ts:30</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>An abstraction for Discord&#39;s shards</p>
-						</div>
-						<p>This function will be called internally within <a href="classes/player.html">Player</a>
-							to send VOICE_STATE_UPDATE events, this is <strong>required</strong> for
-							correct functionality, so implementing this is mandatory
-						if you&#39;re creating your own player manager</p>
-						<p>If you&#39;re using the included player manager for Eris,
-						you do not need to implement this</p>
-						<pre><code class="language-js"><span style="color: #008000">// if your&#039;re using eris, the API maps 1:1</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">WebsocketAbstract</span><span style="color: #000000"> = (</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">ctx</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">shard</span><span style="color: #000000">.</span><span style="color: #795E26">sendWS</span><span style="color: #000000">(</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">ctx</span><span style="color: #000000">)</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Player</span><span style="color: #000000">(</span><span style="color: #001080">someNode</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;110462143152803840&#039;</span><span style="color: #000000">, </span><span style="color: #001080">WebsocketAbstract</span><span style="color: #000000">)</span>
-</code></pre>
-						<pre><code class="language-js"><span style="color: #008000">// if you&#039;re using discord.js...</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">Discord</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">)</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">WebsocketAbstract</span><span style="color: #000000"> = (</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #001080">shardID</span><span style="color: #000000">).</span><span style="color: #795E26">send</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">op</span><span style="color: #000000">,</span>
-<span style="color: #000000">    ...</span><span style="color: #001080">data</span>
-<span style="color: #000000">  })</span>
-<span style="color: #000000">}</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Player</span><span style="color: #000000">(</span><span style="color: #001080">someNode</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;110462143152803840&#039;</span><span style="color: #000000">, </span><span style="color: #001080">WebsocketAbstract</span><span style="color: #000000">)</span>
-</code></pre>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -136,6 +111,31 @@
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>An abstraction for Discord&#39;s shards</p>
+											</div>
+											<p>This function will be called internally within <a href="classes/Player.html">Player</a>
+												to send VOICE_STATE_UPDATE events, this is <strong>required</strong> for
+												correct functionality, so implementing this is mandatory
+											if you&#39;re creating your own player manager</p>
+											<p>If you&#39;re using the included player manager for Eris,
+											you do not need to implement this</p>
+											<pre><code class="language-js"><span style="color: #008000">// if your&#039;re using eris, the API maps 1:1</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">WebsocketAbstract</span><span style="color: #000000"> = (</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">ctx</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">shard</span><span style="color: #000000">.</span><span style="color: #795E26">sendWS</span><span style="color: #000000">(</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">ctx</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Player</span><span style="color: #000000">(</span><span style="color: #001080">someNode</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;110462143152803840&#039;</span><span style="color: #000000">, </span><span style="color: #001080">WebsocketAbstract</span><span style="color: #000000">)</span>
+</code></pre>
+											<pre><code class="language-js"><span style="color: #008000">// if you&#039;re using discord.js...</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">Discord</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">WebsocketAbstract</span><span style="color: #000000"> = (</span><span style="color: #001080">op</span><span style="color: #000000">, </span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #001080">shardID</span><span style="color: #000000">).</span><span style="color: #795E26">send</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">op</span><span style="color: #000000">,</span>
+<span style="color: #000000">    ...</span><span style="color: #001080">data</span>
+<span style="color: #000000">  })</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Player</span><span style="color: #000000">(</span><span style="color: #001080">someNode</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;110462143152803840&#039;</span><span style="color: #000000">, </span><span style="color: #001080">WebsocketAbstract</span><span style="color: #000000">)</span>
+</code></pre>
+										</div>
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
@@ -164,29 +164,29 @@
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-namespace tsd-is-external">
-						<a href="modules/lavalinktypes.html">Lavalink<wbr>Types</a>
+						<a href="modules/LavalinkTypes.html">Lavalink<wbr>Types</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/node.html" class="tsd-kind-icon">Node</a>
+						<a href="classes/Node.html" class="tsd-kind-icon">Node</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/player.html" class="tsd-kind-icon">Player</a>
+						<a href="classes/Player.html" class="tsd-kind-icon">Player</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/nodeoptions.html" class="tsd-kind-icon">Node<wbr>Options</a>
+						<a href="interfaces/NodeOptions.html" class="tsd-kind-icon">Node<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/trackplay.html" class="tsd-kind-icon">Track<wbr>Play</a>
+						<a href="interfaces/TrackPlay.html" class="tsd-kind-icon">Track<wbr>Play</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/voiceupdate.html" class="tsd-kind-icon">Voice<wbr>Update</a>
+						<a href="interfaces/VoiceUpdate.html" class="tsd-kind-icon">Voice<wbr>Update</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#websocketimplementation" class="tsd-kind-icon">Websocket<wbr>Implementation</a>
+						<a href="modules.html#WebsocketImplementation" class="tsd-kind-icon">Websocket<wbr>Implementation</a>
 					</li>
 				</ul>
 			</nav>
