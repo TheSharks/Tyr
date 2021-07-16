@@ -1,7 +1,6 @@
 import { PlayerEvent, PlayerUpdate } from '@lavaclient/types'
 import { Collection } from 'eris'
 import { NodeConstructor, PlayerManagerOptions } from '../interfaces/NodeConstructor'
-import { Snowflake } from '../types/misc'
 import Node from './Node'
 import Player from './Player'
 
@@ -31,7 +30,7 @@ export class ErisPlayerManager extends Collection<Player> {
     this.defaultRegion = options.defaultRegion ?? 'global'
   }
 
-  async join (guildID: Snowflake, channelID: Snowflake) {
+  async join (guildID: string, channelID: string) {
     const player = this.get(guildID)
     if (player && player.connected) {
       player.switchChannel(channelID)
@@ -50,14 +49,14 @@ export class ErisPlayerManager extends Collection<Player> {
     })
   }
 
-  leave (guildID: Snowflake) {
+  leave (guildID: string) {
     const player = this.get(guildID)
     if (!player) return
     player.disconnect()
     this.delete(guildID)
   }
 
-  switch (guildID: Snowflake, channelID: Snowflake) {
+  switch (guildID: string, channelID: string) {
     const player = this.get(guildID)
     if (!player) return
     player.switchChannel(channelID)

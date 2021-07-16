@@ -4,7 +4,6 @@ import { EventEmitter } from 'events'
 import { TrackPlay } from '../interfaces/TrackPlay'
 import { VoiceUpdate } from '../interfaces/VoiceUpdate'
 import { WebsocketImplementation } from '../interfaces/WebsocketImplementation'
-import { Snowflake } from '../types/misc'
 import Node from './Node'
 
 interface Player {
@@ -12,14 +11,17 @@ interface Player {
    * Fired when the player is considered ready
    */
    on(event: 'ready', listener: () => void): this
+   once(event: 'ready', listener: () => void): this
   /**
    * Fired when the player encounters something not breaking, but noteworthy
    */
    on(event: 'warn', listener: (ctx: string) => void): this
+   once(event: 'warn', listener: (ctx: string) => void): this
   /**
    * Fired when the player receives a status update from the node
    */
    on(event: 'statusUpdate', listener: (status: PlayerUpdateState) => void): this
+   once(event: 'statusUpdate', listener: (status: PlayerUpdateState) => void): this
   /**
    * Fired when the track the player is playing has ended
    *
@@ -27,22 +29,27 @@ interface Player {
    * You should check the [[TrackEndEvent.reason]] property before doing additional logic
    */
    on(event: 'trackEnd', listener: (ctx: TrackEndEvent) => void): this
+   once(event: 'trackEnd', listener: (ctx: TrackEndEvent) => void): this
   /**
    * Fired whenever the player encouters an error while playing / trying to play a track
    */
    on(event: 'trackError', listener: (ctx: TrackExceptionEvent) => void): this
+   once(event: 'trackError', listener: (ctx: TrackExceptionEvent) => void): this
   /**
    * Fired whenever the track the player is playing hasn't progressed for a set amount of time
    */
    on(event: 'trackStuck', listener: (ctx: TrackStuckEvent) => void): this
+   once(event: 'trackStuck', listener: (ctx: TrackStuckEvent) => void): this
   /**
    * Fired whenever the player starts playing a track
    */
    on(event: 'trackStart', listener: (ctx: TrackStartEvent) => void): this
+   once(event: 'trackStart', listener: (ctx: TrackStartEvent) => void): this
   /**
    * Fired whenever the player is disconnected from Discord and therefor unable to continue playing
    */
    on(event: 'disconnected', listener: (ctx: WebSocketClosedEvent) => void): this
+   once(event: 'disconnected', listener: (ctx: WebSocketClosedEvent) => void): this
 }
 
 /**
@@ -58,7 +65,7 @@ class Player extends EventEmitter {
   /**
    * The ID of the guild that this player is serving
    */
-  id: Snowflake
+  id: string
   /**
    * Whether or not the player is currently paused
    */
@@ -74,7 +81,7 @@ class Player extends EventEmitter {
    */
   state: PlayerUpdateState | undefined
   #ws: WebsocketImplementation
-  constructor (node: Node, guildID: Snowflake, websocket: WebsocketImplementation) {
+  constructor (node: Node, guildID: string, websocket: WebsocketImplementation) {
     super()
     this.node = node
     this.id = guildID
@@ -168,7 +175,7 @@ class Player extends EventEmitter {
    * Move the player to a different voice channel
    * @param channelID The channel the player should be moved to
    */
-  switchChannel (channelID: Snowflake) {
+  switchChannel (channelID: string) {
     this.updateVoiceState(channelID)
   }
 
@@ -216,7 +223,7 @@ class Player extends EventEmitter {
    * @param mute Should the client appear mute?
    * @param deaf Should the client appear deaf?
    */
-  updateVoiceState (channelID?: Snowflake, mute: boolean = false, deaf: boolean = false) {
+  updateVoiceState (channelID?: string, mute: boolean = false, deaf: boolean = false) {
     this.#ws(4, { // VOICE_STATE_UPDATE
       guild_id: this.id,
       channel_id: channelID ?? null,

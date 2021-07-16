@@ -11,18 +11,22 @@ interface Node extends NodeOptions {
    * Fired when the node is considered ready to accept new players
    */
    on(event: 'ready', listener: () => void): this
+   once(event: 'ready', listener: () => void): this
   /**
    * Fired when a breaking error is encoutered, either with the node or with processing
    */
    on(event: 'error', listener: (e: Error) => void): this
+   once(event: 'error', listener: (e: Error) => void): this
   /**
    * Fired when the node broadcasts a message
    */
    on(event: 'message', listener: (msg: PlayerEvent | PlayerUpdate) => void): this
+   once(event: 'message', listener: (msg: PlayerEvent | PlayerUpdate) => void): this
   /**
    * Fired the node disconnects
    */
    on(event: 'disconnected', listener: () => void): this
+   once(event: 'disconnected', listener: () => void): this
 }
 /**
  * Represents a Lavalink node
