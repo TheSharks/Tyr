@@ -75,6 +75,7 @@ class Node extends EventEmitter {
     this.retries = 0
     this.region = options.region || 'global'
     this.autoReconnect = options.autoReconnect || true
+    this.resumeToken = options.resumeToken
 
     this.connect()
   }
@@ -182,7 +183,7 @@ class Node extends EventEmitter {
       this.emit('error', new Error(`Unsupported API version: ${apiVersion}`))
     }
     this.apiVersion = apiVersion
-    if (JSON.parse(msg.headers['session-resumed'] as string)) {
+    if (JSON.parse(msg.headers['session-resumed'] as string) === true) {
       this.emit('resumed')
     }
   }
