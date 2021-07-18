@@ -1,6 +1,6 @@
 {
   "name": "@thesharks/tyr",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Library-agnostic and lightweight Lavalink implementation",
   "main": "dist/index.js",
   "scripts": {
