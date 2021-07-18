@@ -89,7 +89,8 @@ class Node extends EventEmitter {
         Authorization: this.password,
         'Num-Shards': this.shards,
         'User-Id': this.user,
-        'Resume-Key': this.resumeToken ?? undefined
+        'Client-Name': `thesharks/tyr@${require('../../package.json').version}`,
+        ...(this.resumeToken !== undefined ? { 'Resume-Key': this.resumeToken } : {})
       }
     })
 
